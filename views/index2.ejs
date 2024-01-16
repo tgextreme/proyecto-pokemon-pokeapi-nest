@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Tus etiquetas meta y enlaces a CSS aquí -->
+</head>
+<body>
+    <!-- Tu navegación y otros elementos estáticos aquí -->
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">Welcome to the Pokémon API Project By Tomás González</h1>
+                <p>Nombre: <%= pokemon.name %></p>
+                <p>ID: <%= pokemon.id %></p>
+                <p>Experiencia: <%= pokemon.base_experience %></p>
+                <p>Altura: <%= pokemon.height %></p>
+                <p>Peso: <%= pokemon.weight %></p>
+                <% pokemon.types.forEach(function(t) { %>
+                    <p>Type: <%= t.type.name %></p>
+                <% }); %>
+                <% pokemon.moves.forEach(function(m) { %>
+                    <p>Move: <%= m.move.name %></p>
+                <% }); %>
+                <% pokemon.abilities.forEach(function(a) { %>
+                    <p>Ability: <%= a.ability.name %></p>
+                <% }); %>
+                <% pokemon.stats.forEach(function(s) { %>
+                    <p>Stat: <%= s.stat.name %></p>
+                <% }); %>
+                <% for (let key in pokemon.sprites) { %>
+                    <% if (pokemon.sprites[key] && typeof pokemon.sprites[key] === 'string') { %>
+                        <p>Image: <img src="<%= pokemon.sprites[key] %>" alt="Sprite"></p>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de JavaScript aquí -->
+</body>
+</html>
+
